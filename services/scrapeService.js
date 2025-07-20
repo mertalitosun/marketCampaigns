@@ -16,11 +16,14 @@ async function scrapeAllMarkets() {
 const scrapeMarketByName = async (marketName) => {
   switch (marketName) {
     case "a101":
-      return {a101: await scrapeA101Campaigns()};
+      const a101 =  await scrapeA101Campaigns()
+      return {count: a101.length, data:{a101}};
     case "bim":
-      return {bim: await scrapeBimCampaigns()};
+      const bim =  await scrapeBimCampaigns()
+      return {count: bim.length, data:{bim}};
     case "sok":
-      return {sok: await scrapeSokCampaigns()};
+      const sok =  await scrapeSokCampaigns()
+      return {count: sok.length, data:{sok}};
     default:
       throw new Error("Geçersiz market adı")
   }
